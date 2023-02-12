@@ -1,0 +1,29 @@
+@import "./config.scss";
+
+@mixin buttonSize ($padding-x,$padding-y,$border-radius) {
+  padding:$padding-y $padding-x;
+  border-radius: $border-radius;
+}
+.btn{
+  @include buttonSize(20px, 10px,5px);
+  color: $default;
+  cursor: pointer;
+}
+.btn-large{
+  @include buttonSize(25px, 12px,8px);
+}
+.btn-small{
+  @include buttonSize(15px, 8px,3px);
+}
+
+.btn-primary{
+  color: $primary;
+}
+.btn-danger{
+  color: $danger;
+}
+.btn-disabled{
+  user-select: none;
+  cursor: not-allowed;
+  // pointer-events:none;
+}
