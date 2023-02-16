@@ -1,6 +1,7 @@
 import React from "react";
-
 import Button from "./components/Button";
+import Divider from "./components/Divider";
+import "./index.css";
 function App() {
   return (
     <div className="App">
@@ -14,6 +15,11 @@ function App() {
       <Button type="link" href="http://www.baidu.com" onClick={()=>{console.log('a')}}>dzp</Button>
       <Button disabled={true}>dzp</Button>
       <Button onClick={()=>console.log('click')}>惦记我</Button>
+
+      <Divider/>
+      <Divider orientation="right">dzp</Divider>
+      <Divider  type="vertical" className='dzp'>pppp</Divider>
+      <Divider><div style={{width:'100px',height:'100px',backgroundColor:'red'}}>测试盒子</div></Divider>
     </div>
   );
 }

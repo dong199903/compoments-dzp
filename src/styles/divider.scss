@@ -1,0 +1,77 @@
+
+.divider{
+  position: relative;
+  margin: 15px 0;
+}
+
+/*垂直方向*/
+.divider-vertical{
+  display: inline-block;
+  width: 1px;
+  height: 10px;
+  margin: 0 5px;
+  background-color: #ccc;
+}
+
+/*水平方向*/
+.divider-horizontal{
+  border-bottom: 1px solid #ccc;
+  .divider-children{
+    background: #fff;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+} 
+.divider-left{
+  .divider-children{
+    left: 10%;
+  }
+}
+.divider-right{
+  .divider-children{
+    right: 10%;
+  }
+}
+.divider-left{
+  .divider-children{
+    left: 10%;
+  }
+}
+.divider-center{
+  .divider-children{
+    left:50%;
+    transform: translate(-50%,-50%);
+  }
+}
+.divider-dashed{
+  border-bottom: 1px dashed #ccc;
+}
+
+/*水平方向*/
+
+// .divider-horizontal::before{
+//   display:block;
+//   content: '';
+//   width: 50%;
+//   border-bottom: 1px solid #ccc;
+// }
+// .divider-horizontal::after{
+//   display:block;
+//   content: '';
+//   flex: 1;
+//   border-bottom: 1px solid #ccc;
+// }
+// .divider-left{
+  
+// }
+
+/*虚线*/
+.divider-dashed{
+  &::before{
+    border-bottom: 1px dashed #ccc;
+  }
+  &::after{
+    border-bottom: 1px dashed #ccc;
+  }
+}
