@@ -47,31 +47,3 @@
 .divider-dashed{
   border-bottom: 1px dashed #ccc;
 }
-
-/*水平方向*/
-
-// .divider-horizontal::before{
-//   display:block;
-//   content: '';
-//   width: 50%;
-//   border-bottom: 1px solid #ccc;
-// }
-// .divider-horizontal::after{
-//   display:block;
-//   content: '';
-//   flex: 1;
-//   border-bottom: 1px solid #ccc;
-// }
-// .divider-left{
-  
-// }
-
-/*虚线*/
-.divider-dashed{
-  &::before{
-    border-bottom: 1px dashed #ccc;
-  }
-  &::after{
-    border-bottom: 1px dashed #ccc;
-  }
-}
