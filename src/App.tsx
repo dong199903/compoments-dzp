@@ -1,6 +1,7 @@
 import React from "react";
 import Button from "./components/Button";
 import Divider from "./components/Divider";
+import Affix from "./components/Affix";
 import "./index.css";
 function App() {
   return (
@@ -19,6 +20,12 @@ function App() {
       <Divider orientation="right">dzp</Divider>
       <Divider  type="vertical" className='dzp'>pppp</Divider>
       <Divider><div style={{width:'100px',height:'100px',backgroundColor:'red'}}>测试盒子</div></Divider>
+
+      <Affix
+        top={100}
+      >
+        <div style={{backgroundColor:'red'}}>content</div>
+      </Affix>
     </div>
   );
 }
