@@ -1,0 +1,9 @@
+.bread{
+  display: flex;
+}
+.bread-item{
+  .bread-item-separator{
+    color: #ccc;
+    margin: 0 10px;
+  }
+}

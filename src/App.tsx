@@ -2,6 +2,8 @@ import React from "react";
 import Button from "./components/Button";
 import Divider from "./components/Divider";
 import Affix from "./components/Affix";
+import Bread from "./components/Bread/Bread";
+import BreadItem from "./components/Bread/BreadItem";
 import "./index.css";
 function App() {
   return (
@@ -26,6 +28,13 @@ function App() {
       >
         <div style={{backgroundColor:'red'}}>content</div>
       </Affix>
+
+      <Bread>
+        <BreadItem className="test1">item1</BreadItem>
+        <BreadItem onClick={()=>{console.log('click test')}}>item2</BreadItem>
+        <div>dzp</div>
+        <BreadItem><a href="http://www.baidu.com">a link</a></BreadItem>
+      </Bread>
     </div>
   );
 }
