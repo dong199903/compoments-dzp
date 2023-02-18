@@ -1,11 +1,17 @@
-import Bread from "./../components/Bread/Bread";
-import BreadItem from "./../components/Bread/BreadItem";
+import Menu from "./../components/Menu/Menu";
+import MenuItem from "./../components/Menu/MenuItem";
 const Home = ()=>{
   return (
     <div>
-      <Bread>
-        <BreadItem link='/header' onClick={()=>console.log('item1')}>item1</BreadItem>
-      </Bread>
+      <Menu 
+        onSelect={(e)=>{console.log('e',e)}}
+        className='menu-test'
+        defaultIndex={2}
+      >
+        <div>1</div>
+        <MenuItem className="menu-item-test">item1</MenuItem>
+        <MenuItem disabled={true}>item2</MenuItem>
+      </Menu>
 
     </div>
   )

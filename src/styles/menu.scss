@@ -1,0 +1,29 @@
+@import "./config.scss";
+.menu{
+  display: flex;
+  li{
+    list-style: none;
+  }
+  .menu-item{
+    padding: 5px 10px;
+    margin: 0 10px;
+    cursor: pointer;
+    &:hover{
+      background-color: #ccc;
+    }
+    &-actived{
+      color: #fff;
+      background-color: $primary;
+      &:hover{
+        background-color: $primary;
+      }
+    }
+    &-disabled{
+      user-select: none;
+      cursor: not-allowed;
+    }
+  }
+}
+.menu-vertical{
+  flex-direction: column;
+}
