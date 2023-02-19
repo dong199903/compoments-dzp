@@ -36,7 +36,7 @@ const Menu = (props:MenuProps) => {
     //<=index实际的item个数
     let num = 0;
     React.Children.forEach(children,(item:any,idx:number)=>{
-      if(idx<=index && item && item?.type?.name==='MenuItem'){
+      if(idx<=index && item && (item?.type?.name==='MenuItem' || item?.type?.name==='SubMenu') ){
         num++;
       }
     })
@@ -46,7 +46,7 @@ const Menu = (props:MenuProps) => {
     //1.如果存在一个非item类型提示错误，正常显示
     let errorType:boolean = false;
     const resNodeItem = React.Children.map(children,(item:any,index)=>{
-      if(item && item?.type?.name==='MenuItem') {
+      if(item && (item?.type?.name==='MenuItem' || item?.type?.name==='SubMenu')) {
         let idx = findIndexMenu(index);
         return React.cloneElement(item,{
           index:idx
@@ -55,7 +55,7 @@ const Menu = (props:MenuProps) => {
       errorType = true;
       return item;
     })
-    if(errorType) console.error('子类似必须是menu-item');
+    if(errorType) console.error('子类似必须是menu-item或sub-menu');
     return resNodeItem;
   }
   return (

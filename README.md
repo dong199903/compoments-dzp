@@ -44,3 +44,20 @@ You don’t have to ever use `eject`. The curated feature set is suitable for sm
 You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
 To learn React, check out the [React documentation](https://reactjs.org/).
+
+## components
+1. button x
+2. affix x
+3. bread x
+4. dibider x
+5. menu x
+6. process 进度条
+7. tooltip 提示框
+8. tabs 切换面板
+9. message 弹窗消息
+10. modal 弹窗
+11. date 日历
+12. input提示
+13. upload 文件上传
+14. select 选择器
+15. drawer 抽屉

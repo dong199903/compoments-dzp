@@ -6,19 +6,22 @@ interface MenuItemProps {
   children?:React.ReactNode,
   index?:number,
   disabled?:boolean
+  isSubParent?:boolean
 }
 const MenuItem = (props:MenuItemProps) => {
   const {
     className,
     children,
     index,
-    disabled
+    disabled,
+    isSubParent
   } = props;
   const MenuItemContext = useContext(contextMenuItem);
   
   const classes = classNames('menu-item',className,{
-    'menu-item-actived':!disabled && index===MenuItemContext.index,
+    'menu-item-actived':!disabled && !isSubParent && index===MenuItemContext.index,
     'menu-item-disabled':disabled
+
   });
   return (
     <li 

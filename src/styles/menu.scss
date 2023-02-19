@@ -27,3 +27,56 @@
 .menu-vertical{
   flex-direction: column;
 }
+
+.menu-sub-horizontal{
+  position: relative;
+  .menu-sub-items{
+    width: 100%;
+    position: absolute;
+    border: 1px solid gold;
+    padding-left: 0;
+    left: 10px;
+    top:100%;
+  }
+}
+.menu-sub-vertical{
+  .menu-sub-title{
+    margin-left: 10px;
+    padding-left: 10px;
+    &:hover{
+      background-color: #ccc;
+    }
+  }
+  .menu-sub-items{
+    border: 1px solid gold;
+    padding-left: 10px;
+    margin-left: 10px;
+    .menu-item{
+      padding-left: 10px;
+    }
+  }
+}
+
+.menu-sub-node {
+  opacity: 0;
+}
+.menu-sub-node-enter-active {
+  opacity: 1;
+  transition: opacity 500ms;
+}
+.menu-sub-node-enter-done{
+  display: block;
+}
+.menu-sub-node-exit {
+  opacity: 1;
+}
+.menu-sub-node-exit-active {
+  opacity: 0;
+  transition: opacity 500ms;
+}
+.menu-sub-node-exit-done{
+  display: none;
+}
+.menu-sub-node-exit-done{
+  display: none;
+}
