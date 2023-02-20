@@ -1,0 +1,16 @@
+.process{
+  display: flex;
+  padding: 10px;
+  align-items: center;
+  .process-box{
+    width: 200px;
+    height: 20px;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+    margin-right: 10px;
+    .process-box-content{
+      height: 100%;
+      border-radius: 10px;
+    }
+  }
+}

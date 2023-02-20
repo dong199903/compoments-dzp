@@ -51,9 +51,9 @@ To learn React, check out the [React documentation](https://reactjs.org/).
 3. bread x
 4. dibider x
 5. menu x
-6. process 进度条
+6. process 进度条 x
 7. tooltip 提示框
-8. tabs 切换面板
+8. tabs 切换面板 x
 9. message 弹窗消息
 10. modal 弹窗
 11. date 日历
