@@ -1,0 +1,39 @@
+.tabs {
+  display: flex;
+  .tabs_list{
+    border: 1px solid #ccc;
+    .tabs_list_item{
+      padding: 10px;
+      &:hover{
+        background-color: #ccc;
+      }
+    }
+    .tabs_list_item_actived{
+      background: red;
+      color: #fff;
+    }
+    .tabs_list_item_disabled{
+      padding: 10px;
+      user-select: none;
+      cursor: not-allowed;
+      border-right: 1px solid #ccc;
+    }
+  }
+}
+.tabs_top {
+  flex-direction: column;
+  .tabs_list{
+    display: flex;
+    flex-direction:row;
+    .tabs_list_item{
+      border-right: 1px solid #ccc;
+    }
+  }
+}
+.tabs_left {
+  flex-direction: row;
+  .tabs_list{
+    display: flex;
+    flex-direction:column ;
+  }
+}
