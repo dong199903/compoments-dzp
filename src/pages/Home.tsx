@@ -3,6 +3,7 @@ import MenuItem from "./../components/Menu/MenuItem";
 import SubMenu from "../components/Menu/SubMenu";
 import Process from "../components/Process";
 import Tabs from "../components/Tabs";
+import Pagination from "../components/Pagination";
 const Home = ()=>{
   const items = [
     {
@@ -28,6 +29,7 @@ const Home = ()=>{
   return (
     <div>
       <Tabs items={items} onTabClick={onTabClick} ></Tabs>
+      <Pagination total={28} pageSize={5} onChange={(e)=>console.log('e',e)}/>
     </div>
   )
 }

@@ -62,3 +62,4 @@ To learn React, check out the [React documentation](https://reactjs.org/).
 14. select 选择器
 15. drawer 抽屉
 16. form 表单
+17. pagination 分页器 x
