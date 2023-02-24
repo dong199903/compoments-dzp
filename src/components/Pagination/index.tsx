@@ -18,6 +18,151 @@ const Pagination = (props:PaginationProps={pageSize:10,pageNumber:1,total:0}) =>
     console.log(paginationPageSize,paginationPageNumber,paginationTotal)
     setTotalPageSize(Math.ceil(paginationTotal!/paginationPageSize!));
   },[paginationPageNumber])
+  const initPage = () => {
+    if(totalPageSize<=7) {
+      return (
+        Array(totalPageSize).fill(1).map((item,index)=>(
+          <div 
+            className={paginationPageNumber===(index+1)?"pagination_item pagination_item_actived":"pagination_item"} 
+            key={index+Math.random()}
+          >
+            {index+1}
+          </div>
+        ))
+      )
+    }
+    if(paginationPageNumber!<=4) {
+      //前6个+省略+最后一个
+      return (
+        <>
+           {
+             Array(6).fill(1).map((item,index)=>(
+              <div 
+                className={paginationPageNumber===(index+1)?"pagination_item pagination_item_actived":"pagination_item"} 
+                key={index+Math.random()}
+              >
+                {index+1}
+              </div>
+            ))
+           }
+           
+            <div 
+              className='pagination_simple'
+              onClick={()=>{
+                if(paginationPageNumber!+5>=totalPageSize) {
+                  setPaginationPageNumber(totalPageSize);
+                  onChange!(totalPageSize);
+                }else {
+                  setPaginationPageNumber(paginationPageNumber!+5);
+                  onChange!(paginationPageNumber!+5);
+                }
+              }}
+            >
+              ...
+            </div>
+           
+            <div 
+              className={paginationPageNumber===(totalPageSize)?"pagination_item pagination_item_actived":"pagination_item"} 
+              key={paginationPageNumber!+Math.random()}
+            >
+              {totalPageSize}
+            </div>
+        </>
+      )
+    }
+    //第1个+省略+当前页码前后5个+省略+最后一个
+    if(paginationPageNumber!>=5 && paginationPageNumber!<=totalPageSize-4) {
+      return (
+        <>
+          <div
+            className={paginationPageNumber===(1)?"pagination_item pagination_item_actived":"pagination_item"} 
+            key={0+Math.random()}
+          >
+            1
+          </div>
+          <div 
+            className='pagination_simple'
+            onClick={()=>{
+              if(paginationPageNumber!-5<=1) {
+                setPaginationPageNumber(1);
+                onChange!(1);
+              }else {
+                setPaginationPageNumber(paginationPageNumber!-5);
+                onChange!(paginationPageNumber!-5);
+              }
+            }}
+            >
+              ...
+          </div>
+          {
+            Array(5).fill(paginationPageNumber!-2).map((item,index)=>(
+              <div
+                className={paginationPageNumber===(item+index)?"pagination_item pagination_item_actived":"pagination_item"} 
+                key={item-Math.random()}
+              >
+                {item+index}
+              </div>
+            ))
+          }
+          <div 
+            className='pagination_simple'
+            onClick={()=>{
+              if(paginationPageNumber!+5>=totalPageSize) {
+                setPaginationPageNumber(totalPageSize);
+                onChange!(totalPageSize);
+              }else {
+                setPaginationPageNumber(paginationPageNumber!+5);
+                onChange!(paginationPageNumber!+5);
+              }
+            }}
+            >
+              ...
+          </div>
+          <div
+            className={paginationPageNumber===(totalPageSize)?"pagination_item pagination_item_actived":"pagination_item"} 
+            key={totalPageSize-Math.random()}
+          >
+            {totalPageSize}
+          </div>
+        </>
+      )
+    }
+    //展示第1个+省略+后6个
+    return (
+      <>
+        <div
+          className={paginationPageNumber===(1)?"pagination_item pagination_item_actived":"pagination_item"} 
+          key={0+Math.random()}
+        >
+          1
+        </div>
+        <div 
+          className='pagination_simple'
+          onClick={()=>{
+            if(paginationPageNumber!-5<=1) {
+              setPaginationPageNumber(1);
+              onChange!(1);
+            }else {
+              setPaginationPageNumber(paginationPageNumber!-5);
+              onChange!(paginationPageNumber!-5);
+            }
+          }}
+          >
+            ...
+        </div>
+        {
+          Array(6).fill(totalPageSize-5).map((item,index)=>(
+            <div
+              className={paginationPageNumber===(item+index)?"pagination_item pagination_item_actived":"pagination_item"} 
+              key={item-Math.random()}
+            >
+             {item+index} 
+            </div>
+          ))
+        }
+      </>
+    )
+  }
   return (
     <div className='pagination'>
       <div 
@@ -33,19 +178,13 @@ const Pagination = (props:PaginationProps={pageSize:10,pageNumber:1,total:0}) =>
         {leftText}
       </div>
       {
-        totalPageSize>0 && Array(totalPageSize).fill(1).map((item,index)=>(
-          <div 
-            className={paginationPageNumber===(index+1)?"pagination_item pagination_item_actived":"pagination_item"} 
-            key={index}
-          >
-            {index+1}
-          </div>
-        ))
+        initPage()
       }
       <div
         className={paginationPageNumber===Math.ceil(paginationTotal!/paginationPageSize!)?"pagination_right pagination_right_disabled":"pagination_right"}
         onClick={()=>{
           if(paginationPageNumber!==Math.ceil(paginationTotal!/paginationPageSize!)) {
+            console.log('当前页码：',paginationPageNumber!+1);
             setPaginationPageNumber(paginationPageNumber!+1);
             onChange!(paginationPageNumber!+1);
           } 
