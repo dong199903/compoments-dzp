@@ -1,0 +1,16 @@
+.select{
+  width: 200px;
+  position: relative;
+  height: 30px;
+  border: 1px solid #ccc;
+  .select_list{
+    position: absolute;
+    width: 100%;
+    left: 0;
+    border: 1px solid #ccc;
+    .select_list_item{
+      border-bottom: 1px solid #ccc;
+      padding: 10px;
+    }
+  }
+}

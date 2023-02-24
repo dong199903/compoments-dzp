@@ -15,7 +15,6 @@ const Pagination = (props:PaginationProps={pageSize:10,pageNumber:1,total:0}) =>
   const [paginationTotal,setPaginationTotal] = useState(total);//总数量
   const [totalPageSize,setTotalPageSize] = useState(0);//总页码
   useEffect(()=>{
-    console.log(paginationPageSize,paginationPageNumber,paginationTotal)
     setTotalPageSize(Math.ceil(paginationTotal!/paginationPageSize!));
   },[paginationPageNumber])
   const initPage = () => {
@@ -184,7 +183,6 @@ const Pagination = (props:PaginationProps={pageSize:10,pageNumber:1,total:0}) =>
         className={paginationPageNumber===Math.ceil(paginationTotal!/paginationPageSize!)?"pagination_right pagination_right_disabled":"pagination_right"}
         onClick={()=>{
           if(paginationPageNumber!==Math.ceil(paginationTotal!/paginationPageSize!)) {
-            console.log('当前页码：',paginationPageNumber!+1);
             setPaginationPageNumber(paginationPageNumber!+1);
             onChange!(paginationPageNumber!+1);
           } 

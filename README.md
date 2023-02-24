@@ -12,7 +12,7 @@
 11. date 日历
 12. input提示
 13. upload 文件上传
-14. select 选择器
+14. select 选择器 x
 15. drawer 抽屉
 16. form 表单
 17. pagination 分页器 x
