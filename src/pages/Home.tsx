@@ -29,7 +29,7 @@ const Home = ()=>{
   return (
     <div>
       <Tabs items={items} onTabClick={onTabClick} ></Tabs>
-      <Pagination total={28} pageSize={5} onChange={(e)=>console.log('e',e)}/>
+      <Pagination leftText="左边" rightText="右边" total={28} pageSize={5} onChange={(e)=>console.log('e',e)}/>
     </div>
   )
 }

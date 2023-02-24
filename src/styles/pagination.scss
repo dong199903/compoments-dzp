@@ -17,6 +17,9 @@
   }
   .pagination_left,.pagination_right{
     cursor: pointer;
+    white-space: nowrap;
+    width: auto;
+    padding: 0 10px;
   }
   .pagination_left_disabled,.pagination_right_disabled {
     color: #00000040;

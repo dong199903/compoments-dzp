@@ -3,11 +3,13 @@ interface PaginationProps {
   pageSize?:number
   pageNumber?:number
   total?:number,
+  leftText?:string,
+  rightText?:string
   showQuickJumper?:boolean
   onChange?:(e:number)=>void
 }
 const Pagination = (props:PaginationProps={pageSize:10,pageNumber:1,total:0}) => {
-  const {pageSize,pageNumber,total,onChange,showQuickJumper} = props;
+  const {pageSize,pageNumber,total,onChange,showQuickJumper,leftText,rightText} = props;
   const [paginationPageSize,setPaginationPageSize] = useState(pageSize);//页面容量
   const [paginationPageNumber,setPaginationPageNumber] = useState(pageNumber);//页面当前编号
   const [paginationTotal,setPaginationTotal] = useState(total);//总数量
@@ -28,7 +30,7 @@ const Pagination = (props:PaginationProps={pageSize:10,pageNumber:1,total:0}) =>
         }}
         className={paginationPageNumber===1?"pagination_left pagination_left_disabled":"pagination_left"}
       >
-        {'<'}
+        {leftText}
       </div>
       {
         totalPageSize>0 && Array(totalPageSize).fill(1).map((item,index)=>(
@@ -49,7 +51,7 @@ const Pagination = (props:PaginationProps={pageSize:10,pageNumber:1,total:0}) =>
           } 
         }}
       >
-        {'>'}
+       {rightText}
       </div>
 
       <div className="pagination_info">每页{paginationPageSize}条</div>
@@ -77,6 +79,8 @@ Pagination.defaultProps = {
   pageNumber:1,
   pageSize:10,
   total:0,
-  showQuickJumper:false
+  showQuickJumper:false,
+  leftText:'<',
+  rightText:'>'
 }
 export default Pagination;
