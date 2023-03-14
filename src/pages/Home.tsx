@@ -1,21 +1,15 @@
-import Menu from "./../components/Menu/Menu";
-import MenuItem from "./../components/Menu/MenuItem";
-import SubMenu from "../components/Menu/SubMenu";
-import Process from "../components/Process";
-import Tabs from "../components/Tabs";
-import Pagination from "../components/Pagination";
+import React, { useEffect,useState } from "react";
+import "./index.scss";
 import Select from "../components/Select";
-const Home = ()=>{
+const Card = () => {
   const options = [
-    {label:'xiaoming',value:'xiaoming'},
-    {label:'zhaogang',value:'zhaogang'},
-    {label:'lili',value:'lili'}
+    {label:1,value:1},
+    {label:2,value:2}
   ]
   return (
     <div>
-      
       <Select options={options}></Select>
     </div>
   )
 }
-export default Home;
+export default Card;

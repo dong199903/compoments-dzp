@@ -25,6 +25,14 @@ const Select = (props:selectProps) => {
   const classes = classNames('select',className,{})
   useEffect(()=>{
     setDivHeight(domRef.current?.offsetHeight!);
+    const handle = (e:MouseEvent) => {
+      const isOutside = !domRef.current?.contains(e.target as Node)
+      if(isOutside) setDownModal(false)
+    }
+    document.addEventListener('click',handle);
+    return ()=>{
+      document.removeEventListener('click',handle);
+    }
   },[])
   return (
     <div 
