@@ -1,15 +1,19 @@
 import React, { useEffect,useState } from "react";
 import "./index.scss";
-import Select from "../components/Select";
-const Card = () => {
-  const options = [
-    {label:1,value:1},
-    {label:2,value:2}
-  ]
+import Radio from "../components/Radio/Radio";
+import RadioGroup from "../components/Radio/RadioGroup";
+const Home = () => {
+  const onChange=(e:any)=>{
+    console.log(e);
+  }
   return (
     <div>
-      <Select options={options}></Select>
+      <RadioGroup onChange={onChange} value={1}>
+        <Radio value={1}>选项1</Radio>
+        <Radio value={2}>选项2</Radio>
+      </RadioGroup>
+      dzp
     </div>
   )
 }
-export default Card;
+export default Home;
