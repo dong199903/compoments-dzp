@@ -24,15 +24,22 @@ const Select = (props:selectProps) => {
   const [choiceItem,setChoiceItem] = useState<{label:any,value:any}>();
   const classes = classNames('select',className,{})
   useEffect(()=>{
+
+    /** 监听是否点击非元素自身 */
     setDivHeight(domRef.current?.offsetHeight!);
     const handle = (e:MouseEvent) => {
       const isOutside = !domRef.current?.contains(e.target as Node)
       if(isOutside) setDownModal(false)
     }
     document.addEventListener('click',handle);
+    /**初始化选择 */
+    options?.forEach(item=>{
+      if(item.value===defaultValue) setChoiceItem(item);
+    })
     return ()=>{
       document.removeEventListener('click',handle);
     }
+    
   },[])
   return (
     <div 
