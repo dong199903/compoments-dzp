@@ -3,31 +3,18 @@ import classNames from "classnames";
 import { choiceContext } from "./RadioGroup";
 interface RadioProps {
   className?:string,
-  value?:any,
+  value?:any,//value
   children?:React.ReactNode,
-  index?:number
+  disabled?:boolean//是否禁用
+  checked?:boolean//是否选中
+  onChange?:(e:any)=>void
 }
 const Radio = (props:RadioProps) => {
-  const ctx:any = useContext(choiceContext);
-  const setIndex = ctx.setIndex//更新index
-  const onChange = ctx.onChange//更新的fn
-  const fnValue = ctx.value//父亲指定的初始value
-  const fnIndex = ctx.index//父亲的index
-  const {className,value,children,index} = props;
-  const classes = classNames('radio',className,{
-
-  })
-  const [isS,setIsS] = useState(false);
-  /**选择时，反选 */
-  const change = (e:any) => {
-    //1.更新index
-    setIndex(index);
-    //2.触发fn
-    if(onChange) onChange(index)
-  }
+  const {className,value,children,disabled,checked,onChange} = props;
+  const classes = classNames('radio',className,{});
   return (
     <span className={classes}>
-      <input type="radio" onClick={change} checked={index===fnIndex} />
+      <input type="radio" onClick={()=>onChange && onChange(value)} checked={checked} disabled={disabled} />
       {children}
     </span>
   )

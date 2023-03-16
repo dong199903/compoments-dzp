@@ -6,12 +6,23 @@ interface RadioGroupProps {
   onChange?:(e:any)=>void,
   children?:any
 }
-export const choiceContext = React.createContext({});
+interface ContextProps {
+  onChange?:(e:any)=>void,
+  defaultValue?:any
+}
+export const choiceContext = React.createContext<ContextProps>({});
 const RadioGroup = (props:RadioGroupProps) => {
   const {className,value,onChange,children} = props;
+  //当前激活的value
+  const [activeValue,setActiveValue] = useState(value?value:null);
   const classes = classNames('radio-group',className,{
   })
-  const [selectIndex,setSelectIndex] = useState(-1);//当前选择的
+
+  //按钮激活点击
+  const activedChange = (e:any) => {
+    setActiveValue(e)
+    onChange && onChange(e)
+  }
   /**children配置 */
   const radioChild = () => {
     const res = React.Children.map(children,(item,index)=>{
@@ -20,7 +31,9 @@ const RadioGroup = (props:RadioGroupProps) => {
           throw new Error('error')
         }else{
           return React.cloneElement(item,{
-            index
+            checked:item.props.value===activeValue,
+            disabled:item.props.disabled===true,
+            onChange:activedChange
           })
         }
       }catch(e){
@@ -31,7 +44,7 @@ const RadioGroup = (props:RadioGroupProps) => {
   }
   radioChild()
   return (
-    <choiceContext.Provider value={{index:selectIndex,setIndex:setSelectIndex,onChange,value}}>
+    <choiceContext.Provider value={{onChange,defaultValue:value}}>
       <div className={classes}>
         {radioChild()}
       </div>

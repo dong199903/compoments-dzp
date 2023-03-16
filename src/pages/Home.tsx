@@ -8,7 +8,7 @@ const Home = () => {
   }
   return (
     <div>
-      <RadioGroup onChange={onChange} value={1}>
+      <RadioGroup onChange={onChange}>
         <Radio value={1}>选项1</Radio>
         <Radio value={2}>选项2</Radio>
       </RadioGroup>
