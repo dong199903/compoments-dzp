@@ -22,8 +22,8 @@
 
 
 ## blog
-1.swiper
-2.pagination
-3.bread
-4.select   
-5.checkbox
+1. swiper
+2. pagination
+3. bread
+4. select   
+5. checkbox

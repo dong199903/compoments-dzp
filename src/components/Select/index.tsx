@@ -7,11 +7,6 @@ interface selectProps {
   onChange?:()=>void,
 }
 const Select = (props:selectProps) => {
-  /**
-   * 1.搜索框内点击切换下拉列表
-   * 2.搜索框外点击隐藏下拉列表
-   * 3.
-   */
   const {
     defaultValue,
     className,
@@ -24,7 +19,6 @@ const Select = (props:selectProps) => {
   const [choiceItem,setChoiceItem] = useState<{label:any,value:any}>();
   const classes = classNames('select',className,{})
   useEffect(()=>{
-
     /** 监听是否点击非元素自身 */
     setDivHeight(domRef.current?.offsetHeight!);
     const handle = (e:MouseEvent) => {
@@ -38,8 +32,7 @@ const Select = (props:selectProps) => {
     })
     return ()=>{
       document.removeEventListener('click',handle);
-    }
-    
+    } 
   },[])
   return (
     <div 
