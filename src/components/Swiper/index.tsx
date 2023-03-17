@@ -49,9 +49,11 @@ const Swiper = (props:SwiperProps) => {
     {
       React.Children.map(children,(item:any,index:number)=>{
         return (
-          <div className={index===activedIndex?'swiper-item swiper-item-actived':'swiper-item'}>
-            {
-              React.cloneElement(item,{
+          <div 
+            key={index} 
+            className={index===activedIndex?'swiper-item swiper-item-actived':'swiper-item'}
+          >
+            { React.cloneElement(item,{
                 index:index
               })
             }

@@ -9,16 +9,16 @@
 8. radio 单选 x
 9. pagination 分页器 x
 10. checkbox 多选 x
-11.  
-12. message 弹窗消息
-13. modal 弹窗
-14. date 日历
-15. tooltip 提示框
-16. upload 文件上传
-17. select -------------(多选优化)
-18. drawer 抽屉
-19. form 表单
-20. swiper---(提前设计)
+11. swiper 轮播图 x 
+12. 
+13. message 弹窗消息
+14. modal 弹窗
+15. date 日历
+16. tooltip 提示框
+17. upload 文件上传
+18. select -------------(多选优化)
+19. drawer 抽屉
+20. form 表单
 
 
 ## blog
@@ -26,4 +26,4 @@
 2.pagination
 3.bread
 4.select   
-5.checkbox 多选
+5.checkbox
