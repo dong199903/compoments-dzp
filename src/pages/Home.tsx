@@ -1,20 +1,17 @@
 import React, { useEffect,useState } from "react";
-import "./index.scss";
-import Radio from "../components/Radio/Radio";
-import RadioGroup from "../components/Radio/RadioGroup";
-import CheckGroup from "../components/CheckBox/CheckGroup";
-import Check from "../components/CheckBox/Check";
 import Select from "../components/Select";
-import Swiper from "../components/Swiper";
+import "./index.scss";
 const Home = () => {
-  
+  const options = [
+    {label:'value1',value:'value1'},
+    {label:'value2',value:'value2'},
+    {label:'value3',value:'value3'},
+  ]
   return (
     <div>
-      <Swiper duration={2000} onChange={(e)=>{console.log(e)}}>
-        <div>1</div>
-        <div>2</div>
-        <div>3</div>
-      </Swiper>
+     <Select mode='multiple' options={options}></Select>
+
+     {/* <Select options={options}></Select> */}
     </div>
   )
 }

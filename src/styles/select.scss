@@ -1,7 +1,6 @@
 .select{
   width: 200px;
   position: relative;
-  height: 30px;
   border: 1px solid #ccc;
   .select_list{
     position: absolute;
@@ -11,6 +10,28 @@
     .select_list_item{
       border-bottom: 1px solid #ccc;
       padding: 10px;
+    }
+  }
+  .select_box{
+    display: flex;
+    padding: 5px 0;
+    height: 42px;
+    .select_muilt{
+      height: 35px;
+      border: 1px solid #ccc;
+      margin-right: 5px;
+      background-color: #ccc;
+      position: relative;
+      padding: 3px 6px;
+      span{
+        position: absolute;
+        top: -10px;
+        right: 0;
+        display: inline-block;
+        height: 10px;
+        color: #000;
+        cursor: pointer;
+      }
     }
   }
 }
