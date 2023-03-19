@@ -1,4 +1,4 @@
-import React,{useState,useCallback} from "react";
+import React,{useState,useCallback, useEffect, useRef} from "react";
 import {debounce} from "lodash";
 import classNames from "classnames";
 interface AutoComplete {
@@ -22,7 +22,17 @@ const AutoComplate = (props:AutoComplete) => {
   const [inputVal,setInputVal] = useState('');
   const [isDownShow,setIsDownShow] = useState(false);
   const [activedIndex,setActivedIndex] = useState(0);//当前选中的列表
-  
+  const divRef = useRef<HTMLDivElement>(null);
+  useEffect(()=>{
+    const handle = (e:any) => {
+      const isOutside = !divRef.current?.contains(e.target as Node);
+      if(isOutside) setIsDownShow(false);
+    }
+    document.addEventListener('click',handle);
+    return ()=>{
+      document.removeEventListener('click',handle);
+    }
+  },[])
   //input change 
   const onInputChange = (e:any) => {
     Promise.resolve(onSearch(e.target.value)).then((msg:any)=>{
@@ -71,7 +81,7 @@ const AutoComplate = (props:AutoComplete) => {
     }
   }
   return (
-    <div className={classes}>
+    <div className={classes} ref={divRef}>
       <input 
         type="text" 
         placeholder={placeholder} 
