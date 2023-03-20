@@ -16,7 +16,7 @@ const Pagination = (props:PaginationProps={pageSize:10,pageNumber:1,total:0}) =>
   const [totalPageSize,setTotalPageSize] = useState(0);//总页码
   useEffect(()=>{
     setTotalPageSize(Math.ceil(paginationTotal!/paginationPageSize!));
-  },[paginationPageNumber])
+  },[])//paginationPageNumber
   const initPage = () => {
     if(totalPageSize<=7) {
       return (
@@ -50,10 +50,10 @@ const Pagination = (props:PaginationProps={pageSize:10,pageNumber:1,total:0}) =>
               onClick={()=>{
                 if(paginationPageNumber!+5>=totalPageSize) {
                   setPaginationPageNumber(totalPageSize);
-                  onChange!(totalPageSize);
+                  onChange&&onChange!(totalPageSize);
                 }else {
                   setPaginationPageNumber(paginationPageNumber!+5);
-                  onChange!(paginationPageNumber!+5);
+                  onChange&&onChange!(paginationPageNumber!+5);
                 }
               }}
             >
@@ -84,10 +84,10 @@ const Pagination = (props:PaginationProps={pageSize:10,pageNumber:1,total:0}) =>
             onClick={()=>{
               if(paginationPageNumber!-5<=1) {
                 setPaginationPageNumber(1);
-                onChange!(1);
+                onChange&&onChange!(1);
               }else {
                 setPaginationPageNumber(paginationPageNumber!-5);
-                onChange!(paginationPageNumber!-5);
+                onChange&&onChange!(paginationPageNumber!-5);
               }
             }}
             >
@@ -108,10 +108,10 @@ const Pagination = (props:PaginationProps={pageSize:10,pageNumber:1,total:0}) =>
             onClick={()=>{
               if(paginationPageNumber!+5>=totalPageSize) {
                 setPaginationPageNumber(totalPageSize);
-                onChange!(totalPageSize);
+                onChange&&onChange!(totalPageSize);
               }else {
                 setPaginationPageNumber(paginationPageNumber!+5);
-                onChange!(paginationPageNumber!+5);
+                onChange&&onChange!(paginationPageNumber!+5);
               }
             }}
             >
@@ -140,10 +140,10 @@ const Pagination = (props:PaginationProps={pageSize:10,pageNumber:1,total:0}) =>
           onClick={()=>{
             if(paginationPageNumber!-5<=1) {
               setPaginationPageNumber(1);
-              onChange!(1);
+              onChange&&onChange!(1);
             }else {
               setPaginationPageNumber(paginationPageNumber!-5);
-              onChange!(paginationPageNumber!-5);
+              onChange&&onChange!(paginationPageNumber!-5);
             }
           }}
           >
@@ -169,7 +169,7 @@ const Pagination = (props:PaginationProps={pageSize:10,pageNumber:1,total:0}) =>
           if(paginationPageNumber!==1)
           {
             setPaginationPageNumber(paginationPageNumber!-1);
-            onChange!(paginationPageNumber!-1);
+            onChange&&onChange!(paginationPageNumber!-1);
           }   
         }}
         className={paginationPageNumber===1?"pagination_left pagination_left_disabled":"pagination_left"}
@@ -184,7 +184,7 @@ const Pagination = (props:PaginationProps={pageSize:10,pageNumber:1,total:0}) =>
         onClick={()=>{
           if(paginationPageNumber!==Math.ceil(paginationTotal!/paginationPageSize!)) {
             setPaginationPageNumber(paginationPageNumber!+1);
-            onChange!(paginationPageNumber!+1);
+            onChange&&onChange!(paginationPageNumber!+1);
           } 
         }}
       >
@@ -201,6 +201,7 @@ const Pagination = (props:PaginationProps={pageSize:10,pageNumber:1,total:0}) =>
                 //获取输入的数字进行跳转
                 if(Number(e.currentTarget?.value)>=1 && Number(e.currentTarget?.value)<=totalPageSize!) {
                   setPaginationPageNumber(Number(e.currentTarget?.value));
+                  onChange && onChange(Number(e.currentTarget?.value))
                 }
               }
             }}/>
