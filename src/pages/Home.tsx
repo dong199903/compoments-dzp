@@ -1,6 +1,7 @@
 import React, { useEffect,useState } from "react";
 import Select from "../components/Select";
 import AutoComplate from "../components/AutoComplete";
+import Swiper from "../components/Swiper";
 import "./index.scss";
 const Home = () => {
   const options = [
@@ -20,11 +21,16 @@ const Home = () => {
   }
   return (
     <div>
-     <AutoComplate 
+     {/* <AutoComplate 
       placeholder="请输入text"
       options={options}
       onSearch={onSearch}
-     />
+     /> */}
+     <Swiper>
+      <div>1</div>
+      <div>2</div>
+      <div>3</div>
+     </Swiper>
     </div>
   )
 }

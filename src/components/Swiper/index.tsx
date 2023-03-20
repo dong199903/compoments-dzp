@@ -1,27 +1,30 @@
 import React,{useEffect,useState} from "react";
 import classNames from "classnames";
-import { divide } from "lodash";
 interface SwiperProps {
+  autoplay?:boolean,
   children?:React.ReactNode,
   className?:string,
   duration?:number,
   onChange?:(e:any)=>void
 }
 const Swiper = (props:SwiperProps) => {
-  const {className,children,duration,onChange} = props;
+  const {autoplay,className,children,duration,onChange} = props;
   const [activedIndex,setActivedIndex] = useState(0);
   const [count,setCount] = useState(0);
   useEffect(()=>{
-    const timer = setInterval(()=>{
-      let index = activedIndex+1;
-      if(index===count) {
-        index = 0;   
-      }
-      setActivedIndex(index);
-      onChange && onChange(index)
-    },duration);
+    let timer:any = null;
+    if(autoplay) {
+      timer = setInterval(()=>{
+        let index = activedIndex+1;
+        if(index===count) {
+          index = 0;   
+        }
+        setActivedIndex(index);
+        onChange && onChange(index)
+      },duration);
+    }
     return () => {
-      clearInterval(timer);
+      timer && clearInterval(timer);
     }
   },[activedIndex])
 
@@ -80,6 +83,7 @@ const Swiper = (props:SwiperProps) => {
   )
 }
 Swiper.defaultProps = {
-  duration:1500
+  duration:1500,
+  autoplay:false
 }
 export default Swiper;
