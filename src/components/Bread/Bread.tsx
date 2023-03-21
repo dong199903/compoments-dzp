@@ -3,12 +3,11 @@ import classNames from "classnames";
 interface BreadProps {
   children?:React.ReactNode,
   className?:string,
-  separator?:string,
+  separator?:React.ReactNode,
 }
 const Bread = (props:BreadProps) => {
   const {children,className,separator} = props;
   const classes = classNames('bread',className);
-  console.log(children)
 
   /**判断是否是最后一个breaditem组件 */
   const judgeLastBreadItem = (idx:number) => {
@@ -29,13 +28,10 @@ const Bread = (props:BreadProps) => {
     if(children instanceof Array) {
       if(!judgeLastBreadItem(index)) 
         return React.cloneElement(item,{
-          index,
           separator
         })
     }
-    return React.cloneElement(item,{
-      index
-    })
+    return item;
   })
   return (
     <div className={classes}>{BreadElement}</div>
