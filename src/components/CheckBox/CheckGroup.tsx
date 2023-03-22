@@ -36,6 +36,7 @@ const Check = (props:CheckGroupProps) => {
       }
       else{
         const val = item.props.value;//
+        //如果本身是checked，添加数组
         const isChoice = activeChoices.includes(val);
         return React.cloneElement(item,{
           disabled:item.props.disabled,
