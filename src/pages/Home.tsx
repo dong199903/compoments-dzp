@@ -1,18 +1,19 @@
 import React from "react";
 import Select from "../components/Select";
+import AutoComplate from '../components/AutoComplete/index';
 const Home = () => {
-  const options=[
-    {label:'小米',value:'小米'},
-    {label:'华为',value:'华为'},
-    {label:'网易',value:'网易'},
-    {label:'京东',value:'京东',disabled:true},
-  ]
+  const search = (value:any) => {
+    //模拟后后端请求
+    return new Promise((resolve,reject)=>{
+      setTimeout(() => {
+        let arr = Array.from(new Array(7),item=>Math.floor(Math.random()*10));
+        resolve(arr);
+      }, 500);
+    })
+  }
   return (
     <div>
-      <Select options={options} mode='multiple' defaultValue={['小米']} onChange={(e:any)=>console.log(e)}/>
-       {/* <Select defaultValue={['小米']} options={options} mode='multiple' >
-
-      </Select> */}
+      <AutoComplate onSearch={search}/>
     </div>
   )
 }
