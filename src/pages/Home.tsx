@@ -2,15 +2,12 @@ import React,{useState} from "react";
 import Select from "../components/Select";
 import AutoComplate from '../components/AutoComplete/index';
 import Input from "../components/Input";
+import Rate from "../components/Rate";
 const Home = () => {
-  const [val,setVal] = useState()
+  
   return (
     <div>
-      <Input 
-        value={val} 
-        onChange={(e:any)=>{setVal(e.target.value)}}
-        prepend="dzp"
-      />
+      <Rate />
     </div>
   )
 }
