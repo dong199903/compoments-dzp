@@ -6,7 +6,11 @@ const Home = () => {
   const [val,setVal] = useState()
   return (
     <div>
-      <Input value={val} onChange={(e:any)=>{setVal(e.target.value)}}/>
+      <Input 
+        value={val} 
+        onChange={(e:any)=>{setVal(e.target.value)}}
+        prepend="dzp"
+      />
     </div>
   )
 }
